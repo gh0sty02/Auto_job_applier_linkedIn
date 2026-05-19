@@ -257,6 +257,12 @@ def convert_to_json(data) -> dict:
     Function to convert data to JSON, if unsuccessful, returns `{"error": "Unable to parse the response as JSON", "data": data}`
     '''
     try:
+        if isinstance(data, str):
+            stripped = data.strip()
+            if stripped.startswith("```"):
+                stripped = stripped.split("\n", 1)[-1]
+                stripped = stripped.rsplit("```", 1)[0].strip()
+            data = stripped
         result_json = json.loads(data)
         return result_json
     except json.JSONDecodeError:
