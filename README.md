@@ -23,6 +23,48 @@ Click on above image to watch the demo or use this link https://youtu.be/gMbB1fW
 
 <br>
 
+## 🚀 Quick Start (How to Run)
+
+> Full setup details are in the sections below. This is the condensed checklist.
+
+### 1. Install dependencies
+```bash
+pip install undetected-chromedriver pyautogui setuptools openai flask-cors flask
+```
+
+### 2. Install Google Chrome
+Download and install from https://www.google.com/chrome (use default install path).
+
+### 3. Configure the bot
+Edit these files in the `config/` folder:
+
+| File | What to fill in |
+|------|----------------|
+| `config/personals.py` | Your name, phone, address, city, ethnicity/gender/disability/veteran status |
+| `config/secrets.py` | LinkedIn email & password, AI provider API key (OpenAI/Gemini/DeepSeek) |
+| `config/questions.py` | LinkedIn URL, portfolio, years of experience, visa/salary/notice info, cover letter, resume path |
+| `config/search.py` | Job titles to search, locations, filters (remote/on-site, experience level, etc.) |
+| `config/settings.py` | Bot behavior: stealth mode, run in background, click intervals, pause settings |
+
+### 4. Add your resume
+Place your resume PDF at the path set in `config/questions.py`:
+```
+default_resume_path = "all resumes/default/resume.pdf"
+```
+
+### 5. Run the bot
+```bash
+python runAiBot.py
+```
+
+### 6. (Optional) View applied jobs history
+```bash
+python app.py
+```
+Then open your browser at `http://localhost:5000`.
+
+---
+
 ## ⚙️ How to install
 
 [![Auto Job Applier setup tutorial video](https://github.com/user-attachments/assets/9e876187-ed3e-4fbf-bd87-4acc145880a2)](https://youtu.be/f9rdz74e1lM?si=4fRBcte0nuvr6tEH)
